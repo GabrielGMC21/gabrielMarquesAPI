@@ -5,13 +5,15 @@ O sistema permite o cadastro e exibição de informações de um jogo através d
 
 💡 Estágio atual do projeto
 
-O projeto está em sua primeira versão funcional, com foco em:
+O projeto está em sua segunda versão funcional, com foco em:
 
-Implementação da entidade principal Jogo
+Tomada de decisão condicional
 
-Interação simples com o usuário via console
+Escolha múltipla com switch-case
 
-Demonstração da relação entre método público e privado
+Laços de repetição para fluxos dinâmicos
+
+Controle de fluxo interno dos laços
 
 🚀 Tecnologias utilizadas
 
@@ -24,4 +26,4 @@ Gabriel Marques
 
 📘 Projeto acadêmico - INFNET
 
-🗓️ Versão inicial: Novembro/2025
+🗓️ Última atualização: 10/11/2025
