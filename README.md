@@ -5,15 +5,23 @@ O sistema permite o cadastro e exibição de informações de um jogo através d
 
 💡 Estágio atual do projeto
 
-O projeto está em sua segunda versão funcional, com foco em:
+O projeto implementa os pilares da Programação Orientada a Objetos (POO):
 
-Tomada de decisão condicional
+**Classes e Relacionamentos:** Jogo e Cliente com relacionamentos bidirecionais (Cliente possui lista de Jogos)
 
-Escolha múltipla com switch-case
+**Enum:** Plataformas com conjunto fixo de consoles disponíveis
 
-Laços de repetição para fluxos dinâmicos
+**Coleções:** ArrayList<Jogo> para gerenciar jogos alugados por cliente
 
-Controle de fluxo interno dos laços
+**Sobrecarga de Métodos:** listarJogosAlugados() com e sem parâmetros
+
+**Construtores:** Padrão e parametrizados, com construtor chamando outro na classe Cliente
+
+**Encapsulamento:** Getters/Setters com validações em todos os atributos
+
+**Métodos toString():** Representação textual completa das entidades
+
+**Testes Automatizados:** Validação de todos os recursos implementados via menu interativo
 
 🚀 Tecnologias utilizadas
 
