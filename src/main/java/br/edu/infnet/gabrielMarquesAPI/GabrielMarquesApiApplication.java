@@ -60,7 +60,7 @@ public class GabrielMarquesApiApplication {
 		System.out.print("Digite o preço para comprar o jogo: R$");
 		String precoVendas = in.nextLine();
 
-		System.out.print("O jogo está disponível para locação? (true/false, sim/não, 1/0): ");
+		System.out.print("O jogo está disponível para locação? (sim/não): ");
 		String disponibilidade = in.nextLine();
 
 		System.out.print("Digite a plataforma do jogo: ");

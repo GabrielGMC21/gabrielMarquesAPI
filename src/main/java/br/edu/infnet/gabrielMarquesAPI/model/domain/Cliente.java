@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Cliente {
     private String nome;
     private String email;
-    private double telefone;
+    private String telefone;
     private final ArrayList<Jogo> jogosAlugados;
 
     public Cliente() {
@@ -44,14 +44,11 @@ public class Cliente {
             throw new IllegalArgumentException("O telefone do cliente não pode ser vazio.");
         }
 
-        double telefoneConvertido;
-        try {
-            telefoneConvertido = Double.parseDouble(telefone);
-        } catch (NumberFormatException e) {
+        if (!telefone.matches("\\d+")) {
             throw new IllegalArgumentException("O telefone do cliente deve conter apenas números.");
         }
 
-        this.telefone = telefoneConvertido;
+        this.telefone = telefone;
     }
 
     public ArrayList<Jogo> getJogosAlugados() {
