@@ -51,4 +51,4 @@ Gabriel Marques
 
 📘 Projeto acadêmico — INFNET
 
-🗓️ Última atualização: 10/11/2025
+🗓️ Última atualização: 28/12/2025
