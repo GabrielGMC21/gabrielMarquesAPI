@@ -6,39 +6,39 @@ Projeto desenvolvido em Java 17 com Spring Boot, simulando o funcionamento de um
 
 Nesta etapa, o projeto evoluiu significativamente, aprofundando conceitos de Programação Orientada a Objetos (POO) e boas práticas de desenvolvimento:
 
-Abstração:
+**Abstração:**
 
-  Adição da classe abstrata Pessoa, representando características comuns.
+  - Adição da classe abstrata Pessoa, representando características comuns.
   
-  As classes Cliente e Funcionario agora herdam da classe mãe Pessoa.
+  - As classes Cliente e Funcionario agora herdam da classe mãe Pessoa.
 
-Herança:
+**Herança:**
 
-  Reaproveitamento de atributos e métodos comuns entre clientes e funcionários.
+  - Reaproveitamento de atributos e métodos comuns entre clientes e funcionários.
 
-Interfaces:
+**Interfaces:**
 
-  Implementação das interfaces Alugavel e Vendavel, definindo contratos claros de comportamento para os jogos.
+  - Implementação das interfaces Alugavel e Vendavel, definindo contratos claros de comportamento para os jogos.
   
-Encapsulamento aprimorado:
+**Encapsulamento aprimorado:**
 
-  Melhoria e aprofundamento no uso de getters e setters, com validações mais robustas.
+  - Melhoria e aprofundamento no uso de getters e setters, com validações mais robustas.
   
-  Uso adequado de modificadores de acesso (private, protected, public) para maior segurança e organização do código.
+  - Uso adequado de modificadores de acesso (private, protected, public) para maior segurança e organização do código.
 
-Classes e Relacionamentos:
+**Classes e Relacionamentos:**
 
-  Relacionamentos entre Pessoa, Cliente, Funcionário e Jogo.
+  - Relacionamentos entre Pessoa, Cliente, Funcionário e Jogo.
 
-Tratamento de exceções aprimorado:
+**Tratamento de exceções aprimorado:**
 
-  Uso consistente de try, catch e finally para lidar com erros de execução e leitura/escrita de arquivos.
+  - Uso consistente de try, catch e finally para lidar com erros de execução e leitura/escrita de arquivos.
 
-Manipulação de arquivos (.txt):
+**Manipulação de arquivos (.txt):**
 
-  Os dados de funcionários, clientes e jogos agora são armazenados em arquivos de texto.
+  - Os dados de funcionários, clientes e jogos agora são armazenados em arquivos de texto.
 
-  Isso garante que as informações não sejam perdidas a cada execução do programa, simulando persistência básica de dados sem uso de banco de dados.
+  - Isso garante que as informações não sejam perdidas a cada execução do programa, simulando persistência básica de dados sem uso de banco de dados.
 
 🚀 Tecnologias utilizadas
 
