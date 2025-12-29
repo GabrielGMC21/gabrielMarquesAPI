@@ -2,53 +2,17 @@ package br.edu.infnet.gabrielMarquesAPI.model.domain;
 
 import java.util.ArrayList;
 
-public class Cliente {
-    private String nome;
-    private String email;
-    private String telefone;
+public class Cliente extends Pessoa {
     private final ArrayList<Jogo> jogosAlugados;
 
     public Cliente() {
+        super();
         this.jogosAlugados = new ArrayList<>();
     }
 
     public Cliente(String nome, String email, String telefone) {
-        this();
-        setNome(nome);
-        setEmail(email);
-        setTelefone(telefone);
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    private void setNome(String nome) {
-        if(nome == null || nome.trim().isEmpty()) {
-            throw new IllegalArgumentException("O nome do cliente não pode ser vazio.");
-        }
-        this.nome = nome;
-    }
-
-    private void setEmail(String email) {
-        if(email == null || email.trim().isEmpty()) {
-            throw new IllegalArgumentException("O email do cliente não pode ser vazio.");
-        } else if(!email.contains("@") || !email.contains(".com")) {
-            throw new IllegalArgumentException("O email do cliente é inválido.");
-        }
-        this.email = email;
-    }
-
-    private void setTelefone(String telefone) {
-        if(telefone == null || telefone.trim().isEmpty()) {
-            throw new IllegalArgumentException("O telefone do cliente não pode ser vazio.");
-        }
-
-        if (!telefone.matches("\\d+")) {
-            throw new IllegalArgumentException("O telefone do cliente deve conter apenas números.");
-        }
-
-        this.telefone = telefone;
+        super(nome, email, telefone);
+        this.jogosAlugados = new ArrayList<>();
     }
 
     public ArrayList<Jogo> getJogosAlugados() {
@@ -67,11 +31,11 @@ public class Cliente {
 
     public void listarJogosAlugados() {
         if (jogosAlugados.isEmpty()) {
-            System.out.println("Cliente " + nome + " não possui jogos alugados.");
+            System.out.println("Cliente " + super.getNome() + " não possui jogos alugados.");
             return;
         }
 
-        System.out.println("\n=== Jogos Alugados por " + nome + " ===");
+        System.out.println("\n=== Jogos Alugados por " + super.getNome() + " ===");
         for (int i = 0; i < jogosAlugados.size(); i++) {
             System.out.println((i + 1) + ". " + jogosAlugados.get(i).getNome());
         }
@@ -85,21 +49,29 @@ public class Cliente {
         }
 
         if (jogosAlugados.isEmpty()) {
-            System.out.println("Cliente " + nome + " não possui jogos alugados.");
+            System.out.println("Cliente " + super.getNome() + " não possui jogos alugados.");
             return;
         }
 
-        System.out.println("\n=== Jogos Alugados por " + nome + " (Detalhado) ===\n");
+        System.out.println("\n=== Jogos Alugados por " + super.getNome() + " (Detalhado) ===\n");
         for (int i = 0; i < jogosAlugados.size(); i++) {
             System.out.println((i + 1) + ".");
             System.out.println(jogosAlugados.get(i).toString() + "\n" );
         }
         System.out.println("Total de jogos: " + jogosAlugados.size());
-        System.out.println("\n=== Jogos Alugados por " + nome + " (Detalhado) ===");
+        System.out.println("\n=== Jogos Alugados por " + super.getNome() + " (Detalhado) ===");
     }
 
+    @Override
+    public String getTipoPessoa() {
+        return "Cliente";
+    }
+
+    @Override
     public String toString() {
-        return "Cliente: " + nome + "\nEmail: " + email + "\nTelefone: " + telefone + "\nJogos Alugados: " + jogosAlugados.size();
+        return super.toString() +
+               "\nTipo: " + getTipoPessoa() +
+               "\nJogos Alugados: " + jogosAlugados.size();
     }
 
 }

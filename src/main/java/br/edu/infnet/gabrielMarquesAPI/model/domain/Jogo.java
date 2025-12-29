@@ -1,8 +1,11 @@
 package br.edu.infnet.gabrielMarquesAPI.model.domain;
 
+import br.edu.infnet.gabrielMarquesAPI.model.interfaces.Alugavel;
+import br.edu.infnet.gabrielMarquesAPI.model.interfaces.Vendavel;
+
 import java.time.LocalDate;
 
-public class Jogo {
+public final class Jogo implements Alugavel, Vendavel {
     private int ano;
     private String nome;
     private boolean disponivel;
@@ -10,6 +13,8 @@ public class Jogo {
     private double precoVenda;
     private Plataformas plataforma;
     private LocalDate dataUltimoAluguel;
+
+    public static final int ANO_MAXIMO = 2025;
 
     public Jogo(String nome, String ano, String precoAluguel, String precoVenda, String disponivel, String plataforma) {
         setNome(nome);
@@ -24,6 +29,10 @@ public class Jogo {
         return this.nome;
     }
 
+    public int getAno() {
+        return this.ano;
+    }
+
     public void setNome(String nome) {
         if(nome == null || nome.trim().isEmpty()) {
             throw new IllegalArgumentException("O nome do jogo não pode ser vazio.");
@@ -34,8 +43,8 @@ public class Jogo {
     public void setAno(String anoString) {
         try {
             int ano = Integer.parseInt(anoString);
-            if (ano < 0 || ano > 2025) {
-                throw new IllegalArgumentException("Ano inválido! Digite um ano entre 0 e 2025.");
+            if (ano < 0 || ano > ANO_MAXIMO) {
+                throw new IllegalArgumentException("Ano inválido! Digite um ano entre 0 e " + ANO_MAXIMO + ".");
             }
             this.ano = ano;
         } catch (NumberFormatException e) {
@@ -109,6 +118,10 @@ public class Jogo {
         return this.plataforma;
     }
 
+    public LocalDate getDataUltimoAluguel() {
+        return this.dataUltimoAluguel;
+    }
+
     public void setDataUltimoAluguel(LocalDate dataUltimoAluguel) {
         this.dataUltimoAluguel = dataUltimoAluguel;
     }
@@ -122,6 +135,7 @@ public class Jogo {
         return true;
     }
 
+    @Override
     public void alugar(Cliente cliente, double valorPago) {
         if (!disponivel) {
             System.out.println("O jogo " + nome + " não está disponível para locação.");
@@ -143,6 +157,62 @@ public class Jogo {
         if (troco > 0) {
             System.out.println("Seu troco é R$" + String.format("%.2f", troco) + ".");
         }
+    }
+
+    @Override
+    public void devolver() {
+        if (disponivel) {
+            System.out.println("O jogo " + nome + " já está disponível.");
+            return;
+        }
+        setDisponivel("sim");
+        System.out.println("O jogo " + nome + " foi devolvido e está disponível novamente.");
+    }
+
+    @Override
+    public boolean vender(double valorPago) {
+        if (!disponivel) {
+            System.out.println("O jogo " + nome + " não está disponível para venda.");
+            return false;
+        }
+
+        if (valorPago < precoVenda) {
+            System.out.println("Valor insuficiente para comprar o jogo " + nome + ". O preço é R$" + String.format("%.2f", precoVenda) + ".");
+            return false;
+        }
+
+        double troco = valorPago - precoVenda;
+        System.out.println("O jogo " + nome + " foi vendido com sucesso!");
+
+        if (troco > 0) {
+            System.out.println("Seu troco é R$" + String.format("%.2f", troco) + ".");
+        }
+
+        return true;
+    }
+
+    public boolean vender(double valorPago, double descontoPercentual) {
+        if (!disponivel) {
+            System.out.println("O jogo " + nome + " não está disponível para venda.");
+            return false;
+        }
+
+        double precoComDesconto = precoVenda * (1 - (descontoPercentual / 100));
+        System.out.println("Aplicando desconto de " + descontoPercentual + "%. Novo preço: R$" + String.format("%.2f", precoComDesconto));
+
+        if (valorPago < precoComDesconto) {
+            System.out.println("Valor insuficiente para comprar o jogo " + nome + ". O preço com desconto é R$" + String.format("%.2f", precoComDesconto) + ".");
+            return false;
+        }
+
+        double troco = valorPago - precoComDesconto;
+        System.out.println("O jogo " + nome + " foi vendido com sucesso!");
+
+        if (troco > 0) {
+            System.out.println("Seu troco é R$" + String.format("%.2f", troco) + ".");
+        }
+
+        return true;
     }
 
     @Override
