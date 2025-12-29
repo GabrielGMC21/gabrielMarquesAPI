@@ -1,37 +1,54 @@
 🎮 Sistema de Locadora de Videogames
 
-Projeto desenvolvido em Java 17 com Spring Boot, simulando o funcionamento básico de uma locadora de videogames.
-O sistema permite o cadastro e exibição de informações de um jogo através da interação com o usuário no console.
+Projeto desenvolvido em Java 17 com Spring Boot, simulando o funcionamento de uma locadora de videogames. O sistema permite o cadastro, aluguel, venda e persistência de informações de jogos, clientes e funcionários por meio de interação com o usuário no console.
 
-💡 Estágio atual do projeto
+💡 Estágio atual do projeto — Feature 4
 
-O projeto implementa os pilares da Programação Orientada a Objetos (POO):
+Nesta etapa, o projeto evoluiu significativamente, aprofundando conceitos de Programação Orientada a Objetos (POO) e boas práticas de desenvolvimento:
 
-**Classes e Relacionamentos:** Jogo e Cliente com relacionamentos bidirecionais (Cliente possui lista de Jogos)
+Abstração:
 
-**Enum:** Plataformas com conjunto fixo de consoles disponíveis
+  Adição da classe abstrata Pessoa, representando características comuns.
+  
+  As classes Cliente e Funcionario agora herdam da classe mãe Pessoa.
 
-**Coleções:** ArrayList<Jogo> para gerenciar jogos alugados por cliente
+Herança:
 
-**Sobrecarga de Métodos:** listarJogosAlugados() com e sem parâmetros
+  Reaproveitamento de atributos e métodos comuns entre clientes e funcionários.
 
-**Construtores:** Padrão e parametrizados, com construtor chamando outro na classe Cliente
+Interfaces:
 
-**Encapsulamento:** Getters/Setters com validações em todos os atributos
+  Implementação das interfaces Alugavel e Vendavel, definindo contratos claros de comportamento para os jogos.
+  
+Encapsulamento aprimorado:
 
-**Métodos toString():** Representação textual completa das entidades
+  Melhoria e aprofundamento no uso de getters e setters, com validações mais robustas.
+  
+  Uso adequado de modificadores de acesso (private, protected, public) para maior segurança e organização do código.
 
-**Testes Automatizados:** Validação de todos os recursos implementados via menu interativo
+Classes e Relacionamentos:
+
+  Relacionamentos entre Pessoa, Cliente, Funcionário e Jogo.
+
+Tratamento de exceções aprimorado:
+
+  Uso consistente de try, catch e finally para lidar com erros de execução e leitura/escrita de arquivos.
+
+Manipulação de arquivos (.txt):
+
+  Os dados de funcionários, clientes e jogos agora são armazenados em arquivos de texto.
+
+  Isso garante que as informações não sejam perdidas a cada execução do programa, simulando persistência básica de dados sem uso de banco de dados.
 
 🚀 Tecnologias utilizadas
 
-- Java 17
-- Spring Boot
+Java 17
+
+Spring Boot
 
 🧑‍💻 Autor
-
 Gabriel Marques
 
-📘 Projeto acadêmico - INFNET
+📘 Projeto acadêmico — INFNET
 
 🗓️ Última atualização: 10/11/2025
